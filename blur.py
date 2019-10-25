@@ -34,5 +34,6 @@ def blurCoordinates(self, image):
 
 
 def stitchImages(self, frameRate, resolution):
+    # Stitches all the images together and adds in the audio
     stitchCommand = ("ffmpeg -r ", frameRate, "-s ", resolution, "-i images%04d.png -i videoSound.mp3 -vcodec libx264 -b 4M -vpre normal -acodec copy FinalVideo.mp4 ")
     os.system(stitchCommand)
